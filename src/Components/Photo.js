@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 
 class Photo extends Component {
-  constructor(props) {
-    super(props);
-    const {
-      post,
-    } = props;
-    this.post = post;
-  }
 
   render() {
+    const {
+      post,
+    } = this.props;
     return (
-      <figure className="figure" />
+      <figure className="figure">
+        <img className="photo" src={post.imageLink} alt={post.description} />
+      </figure>
     );
   }
 }
