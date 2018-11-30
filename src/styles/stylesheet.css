@@ -12,8 +12,13 @@ html {
 }
 
 h1 {
-font-family: 'billabong';
+font-family: billabong;
 text-align: center;
+font-weight: 100;
+font-size: 13rem;
+margin: 2rem 0;
+letter-spacing: -1px;
+color: black;
 }
 
 .photo-grid {
