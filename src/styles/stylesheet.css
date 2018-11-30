@@ -8,11 +8,27 @@
 
 html {
   font-size: 10px;
+  
 }
 
 h1 {
 font-family: 'billabong';
 text-align: center;
+}
+
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.figure {
+  flex-basis: calc(33.333% - 4rem);
+  border: 1px solid #d3d3d3;
+  padding: 2rem;
+  flex-grow: 1;
+  margin: 0 2rem 2rem 2rem;
 }
 
 
