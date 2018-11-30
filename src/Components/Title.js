@@ -1,19 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Title extends Component {
-  constructor(props) {
-    super(props);
-    const {
-      title,
-    } = props;
-    this.title = title;
-  }
-
-  render() {
-    return (
-      <h1>{this.title}</h1>
-    );
-  }
-}
+const Title = ({ title }) => <h1>{title}</h1>
 
 export default Title;
