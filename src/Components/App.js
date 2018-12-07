@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import Title from './Title';
 import PhotoWall from './PhotoWall';
 import AddPhoto from './AddPhoto';
+
 
 class App extends Component {
   constructor() {
@@ -20,10 +22,8 @@ class App extends Component {
         description: 'On a vacation!',
         imageLink: 'https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/08/24/104670887-VacationExplainsTHUMBWEB.1910x1000.jpg',
       }],
-      screen: 'photos',
     };
     this.removePhoto = this.removePhoto.bind(this);
-    this.navigate = this.navigate.bind(this);
   }
 
   removePhoto(postRemoved) {
@@ -33,32 +33,27 @@ class App extends Component {
     }));
   }
 
-  navigate() {
-    this.setState({
-      screen: 'addPhoto',
-    });
-  }
-
   render() {
     const {
       posts,
-      screen,
     } = this.state;
     return (
       <div>
-        {
-            screen === 'photos' && (
-              <div>
-                <Title title="PhotoWall" />
-                <PhotoWall posts={posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate}/>
-              </div>
-            )
-        }
-        {
-            screen === 'addPhoto' && (
-              <AddPhoto />
-            )
-        }
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <div>
+              <Title title="PhotoWall" />
+              <PhotoWall
+                posts={posts}
+                onRemovePhoto={this.removePhoto}
+                onNavigate={this.navigate}
+              />
+            </div>
+          )}
+        />
+        <Route path="/AddPhoto" component={AddPhoto} />
       </div>
     );
   }

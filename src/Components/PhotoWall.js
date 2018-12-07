@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Photo from './Photo';
 
-const PhotoWall = ({ posts, onRemovePhoto, onNavigate }) => (
+
+const PhotoWall = ({ posts, onRemovePhoto }) => (
   <div>
-    <a className="addIcon" onClick={onNavigate} href="#AddPhoto" />
+    <Link className="addIcon" to="/AddPhoto" />
     <div className="photo-grid">
       {posts.map((post, index) => <Photo key={index} post={post} onRemovePhoto={onRemovePhoto} />)}
     </div>
@@ -18,7 +20,6 @@ PhotoWall.propTypes = {
     imageLink: PropTypes.string.isRequired,
   })).isRequired,
   onRemovePhoto: PropTypes.func.isRequired,
-  onNavigate: PropTypes.func.isRequired,
 };
 
 export default PhotoWall;
