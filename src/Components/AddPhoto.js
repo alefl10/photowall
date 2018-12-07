@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 class AddPhoto extends Component {
   constructor(props) {
@@ -41,9 +40,5 @@ class AddPhoto extends Component {
     );
   }
 }
-
-AddPhoto.propTypes = {
-  onAddPhoto: PropTypes.func.isRequired,
-};
 
 export default AddPhoto;
