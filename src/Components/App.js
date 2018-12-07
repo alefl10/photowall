@@ -33,6 +33,12 @@ class App extends Component {
     }));
   }
 
+  addPhoto(submittedPost) {
+    this.setState(state => ({
+      posts: state.posts.concat(submittedPost),
+    }));
+  }
+
   render() {
     const {
       posts,
@@ -53,7 +59,18 @@ class App extends Component {
             </div>
           )}
         />
-        <Route path="/AddPhoto" component={AddPhoto} />
+        <Route
+          path="/AddPhoto"
+          render={({ history }) => (
+            <AddPhoto
+              title="PhotoWall"
+              onAddPhoto={(addedPost) => {
+                this.addPhoto(addedPost);
+                history.push('/');
+              }}
+            />
+          )}
+        />
       </div>
     );
   }
