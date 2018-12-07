@@ -8,7 +8,6 @@ const Photo = ({ post, onRemovePhoto }) => (
       <p>{post.description}</p>
       <div className="button-container">
         <button
-          className="remove-button"
           onClick={() => onRemovePhoto(post)}
         >
         Remove
