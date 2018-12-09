@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Title from './Title';
 import PhotoWall from './PhotoWall';
+// import removePost from '../redux/actions';
 // import AddPhoto from './AddPhoto';
 
 
@@ -10,10 +11,15 @@ class App extends Component {
     super(props);
     ({
       posts: this.posts,
+      removePosts: this.removePosts,
     } = props);
   }
 
+  componentDidMount() {
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div>
         <Route
@@ -24,6 +30,7 @@ class App extends Component {
               <Title title="PhotoWall" />
               <PhotoWall
                 posts={this.posts}
+                removePost={this.removePosts}
               />
             </div>
           )}

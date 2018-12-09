@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import Photo from './Photo';
 
 
-const PhotoWall = ({ posts, onRemovePhoto }) => (
+const PhotoWall = ({ posts, removePost }) => (
   <div>
     <Link className="addIcon" to="/AddPhoto" />
     <div className="photo-grid">
-      {posts.map((post, index) => <Photo key={index} post={post} />)}
+      {posts.map((post, index) => <Photo key={index} post={post} removePost={removePost} />)}
     </div>
   </div>
 );

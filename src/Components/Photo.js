@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Photo = ({ post }) => (
+const Photo = ({ post, removePost }) => (
   <figure className="figure">
     <img className="photo" src={post.imageLink} alt={post.description} />
     <figcaption>
       <p>{post.description}</p>
       <div className="button-container">
-        <button>Remove</button>
+        <button
+          onClick={() => {
+            removePost(1);
+          }}
+        >
+        Remove
+        </button>
       </div>
     </figcaption>
   </figure>
