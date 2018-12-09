@@ -8,7 +8,7 @@ const PhotoWall = ({ posts, onRemovePhoto }) => (
   <div>
     <Link className="addIcon" to="/AddPhoto" />
     <div className="photo-grid">
-      {posts.map((post, index) => <Photo key={index} post={post} onRemovePhoto={onRemovePhoto} />)}
+      {posts.map((post, index) => <Photo key={index} post={post} />)}
     </div>
   </div>
 );
@@ -19,7 +19,6 @@ PhotoWall.propTypes = {
     description: PropTypes.string.isRequired,
     imageLink: PropTypes.string.isRequired,
   })).isRequired,
-  onRemovePhoto: PropTypes.func.isRequired,
 };
 
 export default PhotoWall;
