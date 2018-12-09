@@ -25,6 +25,7 @@ Photo.propTypes = {
     description: PropTypes.string.isRequired,
     imageLink: PropTypes.string.isRequired,
   }).isRequired,
+  removePost: PropTypes.func.isRequired,
 };
 
 export default Photo;
