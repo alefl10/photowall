@@ -11,13 +11,13 @@ class AddPhoto extends Component {
     e.preventDefault();
     const imageLink = e.target.elements.link.value;
     const description = e.target.elements.description.value;
+    const { addPost, onHistory } = this.props;
     const post = {
       id: '0',
       description,
       imageLink,
     };
-    const { addPost, onHistory } = this.props;
-    console.log(onHistory);
+
     if (imageLink && description) {
       addPost(post);
       onHistory.push('/');
@@ -25,7 +25,6 @@ class AddPhoto extends Component {
   }
 
   render() {
-    const { title } = this.props;
     return (
       <div>
         <div className="form">
@@ -41,7 +40,6 @@ class AddPhoto extends Component {
 }
 
 AddPhoto.propTypes = {
-  title: PropTypes.string.isRequired,
   addPost: PropTypes.func.isRequired,
 };
 

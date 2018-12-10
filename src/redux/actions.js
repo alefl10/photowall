@@ -11,6 +11,3 @@ export const addPost = post => (
     post,
   }
 );
-
-
-// const addPost
