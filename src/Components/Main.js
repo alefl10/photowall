@@ -2,24 +2,23 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Title from './Title';
 import PhotoWall from './PhotoWall';
-// import removePost from '../redux/actions';
+import { removePost } from '../redux/actions';
 // import AddPhoto from './AddPhoto';
 
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    ({
-      posts: this.posts,
-      removePosts: this.removePosts,
-    } = props);
+class Main extends Component {
+  constructor() {
+    super();
+    // ({
+    //   posts: this.posts,
+    //   removePost: this.removePost,
+    // } = props);
   }
 
   componentDidMount() {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <Route
@@ -29,8 +28,7 @@ class App extends Component {
             <div>
               <Title title="PhotoWall" />
               <PhotoWall
-                posts={this.posts}
-                removePost={this.removePosts}
+                {...this.props}
               />
             </div>
           )}
@@ -52,4 +50,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main;

@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Photo = ({ post, removePost }) => (
+const Photo = props => (
   <figure className="figure">
-    <img className="photo" src={post.imageLink} alt={post.description} />
+    <img className="photo" src={props.post.imageLink} alt={props.post.description} />
     <figcaption>
-      <p>{post.description}</p>
+      <p>{props.post.description}</p>
       <div className="button-container">
         <button
           onClick={() => {
-            removePost(1);
+            props.removePost(props.index);
           }}
         >
         Remove
@@ -20,12 +20,12 @@ const Photo = ({ post, removePost }) => (
 );
 
 Photo.propTypes = {
+  index: PropTypes.number.isRequired,
   post: PropTypes.shape({
     id: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     imageLink: PropTypes.string.isRequired,
   }).isRequired,
-  removePost: PropTypes.func.isRequired,
 };
 
 export default Photo;
