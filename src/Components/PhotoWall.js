@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import Photo from './Photo';
 
 const PhotoWall = (props) => {
-  const {
-    posts,
-  } = props;
+  const { posts } = props;
 
   return (
     <div>

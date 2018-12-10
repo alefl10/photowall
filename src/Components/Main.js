@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Title from './Title';
 import PhotoWall from './PhotoWall';
-import { removePost } from '../redux/actions';
 // import AddPhoto from './AddPhoto';
 
 

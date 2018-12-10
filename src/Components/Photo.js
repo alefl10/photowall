@@ -2,11 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Photo = (props) => {
-  const {
-    post,
-    index,
-    removePost,
-  } = props;
+  const { post, index, removePost } = props;
+
   return (
     <figure className="figure">
       <img className="photo" src={post.imageLink} alt={post.description} />
