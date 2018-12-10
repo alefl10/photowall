@@ -1,10 +1,16 @@
-const removePost = index => (
+export const removePost = index => (
   {
     type: 'REMOVE_POST',
     index,
   }
 );
 
-export default removePost;
+export const addPost = post => (
+  {
+    type: 'ADD_POST',
+    post,
+  }
+);
+
 
 // const addPost

@@ -1,35 +1,36 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddPhoto extends Component {
-  constructor(props) {
-    super(props);
-    ({
-      title: this.title,
-      onAddPhoto: this.onAddPhoto,
-    } = props);
+  constructor() {
+    super();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   const imageLink = e.target.elements.link.value;
-  //   const description = e.target.elements.description.value;
-  //   const post = {
-  //     id: '0',
-  //     description,
-  //     imageLink,
-  //   };
-  //   if (imageLink && description) {
-  //     this.onAddPhoto(post);
-  //   }
-  // }
+  handleSubmit(e) {
+    e.preventDefault();
+    const imageLink = e.target.elements.link.value;
+    const description = e.target.elements.description.value;
+    const post = {
+      id: '0',
+      description,
+      imageLink,
+    };
+    const { addPost, onHistory } = this.props;
+    console.log(onHistory);
+    if (imageLink && description) {
+      addPost(post);
+      onHistory.push('/');
+    }
+  }
 
   render() {
+    const { title } = this.props;
     return (
       <div>
-        <h1>{this.title}</h1>
+        <h1>{title}</h1>
         <div className="form">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <input type="text" placeholder="Link" name="link" />
             <input type="text" placeholder="Description" name="description" />
             <button type="submit">Post</button>
@@ -39,5 +40,10 @@ class AddPhoto extends Component {
     );
   }
 }
+
+AddPhoto.propTypes = {
+  title: PropTypes.string.isRequired,
+  addPost: PropTypes.func.isRequired,
+};
 
 export default AddPhoto;
