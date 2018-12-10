@@ -1,23 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Photo = props => (
-  <figure className="figure">
-    <img className="photo" src={props.post.imageLink} alt={props.post.description} />
-    <figcaption>
-      <p>{props.post.description}</p>
-      <div className="button-container">
-        <button
-          onClick={() => {
-            props.removePost(props.index);
-          }}
-        >
-        Remove
-        </button>
-      </div>
-    </figcaption>
-  </figure>
-);
+const Photo = (props) => {
+  const {
+    post,
+    index,
+    removePost,
+  } = props;
+  return (
+    <figure className="figure">
+      <img className="photo" src={post.imageLink} alt={post.description} />
+      <figcaption>
+        <p>{post.description}</p>
+        <div className="button-container">
+          <button
+            onClick={() => {
+              removePost(index);
+            }}
+          >
+          Remove
+          </button>
+        </div>
+      </figcaption>
+    </figure>
+  );
+};
 
 Photo.propTypes = {
   index: PropTypes.number.isRequired,
@@ -26,6 +33,7 @@ Photo.propTypes = {
     description: PropTypes.string.isRequired,
     imageLink: PropTypes.string.isRequired,
   }).isRequired,
+  removePost: PropTypes.func.isRequired,
 };
 
 export default Photo;

@@ -9,13 +9,6 @@ import { removePost } from '../redux/actions';
 class Main extends Component {
   constructor() {
     super();
-    // ({
-    //   posts: this.posts,
-    //   removePost: this.removePost,
-    // } = props);
-  }
-
-  componentDidMount() {
   }
 
   render() {
