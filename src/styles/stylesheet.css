@@ -17,10 +17,15 @@ h1 {
   font-family: billabong;
   text-align: center;
   font-weight: 100;
-  font-size: 13rem;
+  font-size: 12rem;
   margin: 2rem 0;
   letter-spacing: -1px;
   color: black;
+}
+
+h1 a {
+  color: black;
+  text-decoration: none;
 }
 
 button {

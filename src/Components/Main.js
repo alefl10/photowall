@@ -4,7 +4,6 @@ import Title from './Title';
 import PhotoWall from './PhotoWall';
 import AddPhoto from './AddPhoto';
 
-
 class Main extends Component {
   constructor() {
     super();
@@ -13,12 +12,12 @@ class Main extends Component {
   render() {
     return (
       <div>
+        <Title title="PhotoWall" />
         <Route
           exact
           path="/"
           render={() => (
             <div>
-              <Title title="PhotoWall" />
               <PhotoWall
                 {...this.props}
               />
