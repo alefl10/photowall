@@ -10,9 +10,11 @@ class Comments extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const comment = e.target.elements.comment.value;
-    const { addComment } = this.props;
-
-    addComment(comment);
+    const { addComment, id } = this.props;
+    if (comment) {
+      addComment(comment, id);
+      e.target.elements.comment.value = '';
+    }
   }
 
   render() {
@@ -34,6 +36,7 @@ class Comments extends Component {
 Comments.propTypes = {
   addComment: PropTypes.func.isRequired,
   comments: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default Comments;
