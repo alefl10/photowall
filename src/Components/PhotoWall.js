@@ -5,7 +5,7 @@ import Photo from './Photo';
 
 const PhotoWall = (props) => {
   const { posts } = props;
-
+  
   return (
     <div>
       <Link className="addIcon" to="/AddPhoto" />

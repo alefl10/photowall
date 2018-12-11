@@ -13,6 +13,7 @@ const Single = (props) => {
   const comments = props.comments[id] || [];
   const post = posts.find(postItem => postItem.id === id);
   const index = String(posts.findIndex(postItem => postItem.id === id));
+
   return (
     <div className="single-photo">
       <Photo {...props} post={post} index={Number(id)} />

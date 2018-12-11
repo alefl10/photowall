@@ -6,10 +6,6 @@ import AddPhoto from './AddPhoto';
 import Single from './Single';
 
 class Main extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <div>

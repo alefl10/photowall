@@ -10,7 +10,6 @@ const Photo = (props) => {
     comments,
     history,
   } = props;
-  console.log(comments);
   return (
     <figure className="figure">
       <Link to={`/single/${post.id}`}><img className="photo" src={post.imageLink} alt={post.description} /></Link>
