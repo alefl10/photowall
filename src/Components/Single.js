@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Photo from './Photo';
+import Comments from './Comments';
 
 const Single = (props) => {
   const { history, match, posts } = props;
   const { id } = match.params;
-  const post = posts.find(postItem => postItem.id === id)
+  const post = posts.find(postItem => postItem.id === id);
 
   return (
     <div className="single-photo">
-      <Photo post={post} />
+      <Photo post={post} index={Number(id)} />
+      <Comments />
     </div>
   );
 };
