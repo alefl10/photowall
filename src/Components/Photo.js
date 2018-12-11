@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const Photo = (props) => {
   const { post, index, removePost } = props;
-
   return (
     <figure className="figure">
       <Link to={`/single/${post.id}`}><img className="photo" src={post.imageLink} alt={post.description} /></Link>

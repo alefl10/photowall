@@ -12,7 +12,14 @@ const posts = (state = initialPosts, action) => {
   }
 };
 
-const comments = (state = [], action) => state;
+const comments = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_COMMENT':
+      return [...state, action.comment];
+    default:
+      return state;
+  }
+};
 
 const rootReducer = combineReducers({
   posts,
