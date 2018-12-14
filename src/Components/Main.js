@@ -6,6 +6,11 @@ import AddPhoto from './AddPhoto';
 import Single from './Single';
 
 class Main extends Component {
+  componentDidMount() {
+    const { startLoadingPost } = this.props;
+    startLoadingPost();
+  }
+
   render() {
     return (
       <div>
