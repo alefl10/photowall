@@ -11,7 +11,6 @@ class Comments extends Component {
     e.preventDefault();
     const comment = e.target.elements.comment.value;
     const { startAddingComment, id } = this.props;
-    console.log(this.props);
     if (comment) {
       startAddingComment(comment, id);
       e.target.elements.comment.value = '';

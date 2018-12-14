@@ -16,8 +16,8 @@ const Single = (props) => {
 
   return (
     <div className="single-photo">
-      <Photo {...props} post={post} index={id} />
-      <Comments startAddingComment={startAddingComment} comments={comments} id={index} />
+      <Photo {...props} post={post} index={index} />
+      <Comments startAddingComment={startAddingComment} comments={comments} id={id} />
     </div>
   );
 };
