@@ -29,6 +29,13 @@ export const loadPosts = posts => (
   }
 );
 
+export const loadComments = comments => (
+  {
+    type: 'LOAD_COMMENTS',
+    comments,
+  }
+);
+
 
 /*
 DB ACTIONS
@@ -71,6 +78,17 @@ export const startRemovingPost = (index, id) => dispatch => (
 );
 
 // COMMENTS
+
+export const startLoadingComment = () => dispatch => (
+  database.ref('comments').once('value')
+    .then((snapshot) => {
+      const comments = {};
+      snapshot.forEach((childSnapshot) => {
+        comments[childSnapshot.key] = Object.values(childSnapshot.val());
+      });
+      dispatch(loadComments(comments));
+    })
+);
 
 export const startAddingComment = (comment, postId) => dispatch => (
   database.ref(`comments/${postId}`).push(comment)

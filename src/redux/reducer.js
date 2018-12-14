@@ -21,6 +21,8 @@ const comments = (state = {}, action) => {
         return { ...state, [action.postId]: [action.comment] };
       }
       return { ...state, [action.postId]: [...state[action.postId], action.comment] };
+    case 'LOAD_COMMENTS':
+      return action.comments;
     default:
       return state;
   }

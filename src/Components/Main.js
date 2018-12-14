@@ -7,8 +7,9 @@ import Single from './Single';
 
 class Main extends Component {
   componentDidMount() {
-    const { startLoadingPost } = this.props;
+    const { startLoadingPost, startLoadingComment } = this.props;
     startLoadingPost();
+    startLoadingComment();
   }
 
   render() {
