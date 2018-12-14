@@ -34,18 +34,8 @@ export const loadPosts = posts => (
 DB ACTIONS
 */
 
-export const startAddingPost = post => dispatch => (
-  database.ref('post').update({ [post.id]: post })
-    .then(() => {
-      dispatch(addPost(post));
-    })
-    .catch((err) => {
-      console.log(`There has been an error while posting to Firebase:\n${err}`);
-    })
-);
-
 export const startLoadingPost = () => dispatch => (
-  database.ref('post').once('value') // Could have used on() to make the updates in real time
+  database.ref('posts').once('value') // Could have used on() to make the updates in real time
     .then((snapshot) => {
       const posts = [];
       snapshot.forEach((childSnapshot) => {
@@ -55,5 +45,22 @@ export const startLoadingPost = () => dispatch => (
     })
     .catch((err) => {
       console.log(`There has been an error while loading posts from Firebase:\n${err}`);
+    })
+);
+
+export const startAddingPost = post => dispatch => (
+  database.ref('posts').update({ [post.id]: post })
+    .then(() => {
+      dispatch(addPost(post));
+    })
+    .catch((err) => {
+      console.log(`There has been an error while posting to Firebase:\n${err}`);
+    })
+);
+
+export const startRemovingPost = (index, id) => dispatch => (
+  database.ref(`posts/${id}`).remove()
+    .then(() => {
+      dispatch(removePost(index));
     })
 );

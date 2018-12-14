@@ -6,7 +6,7 @@ const Photo = (props) => {
   const {
     post,
     index,
-    removePost,
+    startRemovingPost,
     comments,
     history,
   } = props;
@@ -19,7 +19,7 @@ const Photo = (props) => {
           <button
             type="button"
             onClick={() => {
-              removePost(index);
+              startRemovingPost(index, post.id);
               history.push('/');
             }}
           >
@@ -49,7 +49,7 @@ Photo.propTypes = {
       PropTypes.string.isRequired,
     ),
   }).isRequired,
-  removePost: PropTypes.func.isRequired,
+  startRemovingPost: PropTypes.func.isRequired,
 };
 
 export default Photo;
