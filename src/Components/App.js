@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withRouter, applyMiddleware } from 'react-router-dom';
-import { thunk } from 'redux-thunk';
+import { withRouter } from 'react-router-dom';
 import * as actions from '../redux/actions';
 import Main from './Main';
 

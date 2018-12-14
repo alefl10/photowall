@@ -11,7 +11,7 @@ class AddPhoto extends Component {
     e.preventDefault();
     const imageLink = e.target.elements.link.value;
     const description = e.target.elements.description.value;
-    const { addPost, onHistory } = this.props;
+    const { startAddingPost, onHistory } = this.props;
     const post = {
       id: '0',
       description,
@@ -19,7 +19,7 @@ class AddPhoto extends Component {
     };
 
     if (imageLink && description) {
-      addPost(post);
+      startAddingPost(post);
       onHistory.push('/');
     }
   }
@@ -40,7 +40,7 @@ class AddPhoto extends Component {
 }
 
 AddPhoto.propTypes = {
-  addPost: PropTypes.func.isRequired,
+  startAddingPost: PropTypes.func.isRequired,
 };
 
 export default AddPhoto;
