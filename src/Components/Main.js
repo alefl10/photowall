@@ -6,13 +6,23 @@ import AddPhoto from './AddPhoto';
 import Single from './Single';
 
 class Main extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
+    };
+  }
+
   componentDidMount() {
     const { startLoadingPost, startLoadingComment } = this.props;
-    startLoadingPost();
+    startLoadingPost().then(() => {
+      this.setState({ loading: false });
+    });
     startLoadingComment();
   }
 
   render() {
+    const { loading } = this.state;
     return (
       <div>
         <Title title="PhotoWall" />
@@ -36,7 +46,7 @@ class Main extends Component {
         <Route
           path="/single/:id"
           render={params => (
-            <Single {...this.props} {...params} />
+            <Single loading={loading} {...this.props} {...params} />
           )}
         />
       </div>

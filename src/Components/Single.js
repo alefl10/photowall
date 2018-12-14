@@ -8,11 +8,16 @@ const Single = (props) => {
     match,
     posts,
     startAddingComment,
+    loading,
   } = props;
   const id = Number(match.params.id);
   const comments = props.comments[id] || [];
   const post = posts.find(postItem => postItem.id === id);
   const index = Number(posts.findIndex(postItem => postItem.id === id));
+
+  if (loading) {
+    return <div className="loader">Loading...</div>;
+  }
 
   return (
     <div className="single-photo">
@@ -34,6 +39,7 @@ Single.propTypes = {
     ),
   }).isRequired,
   startAddingComment: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default Single;
