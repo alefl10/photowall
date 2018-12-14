@@ -34,6 +34,8 @@ export const loadPosts = posts => (
 DB ACTIONS
 */
 
+// POSTS
+
 export const startLoadingPost = () => dispatch => (
   database.ref('posts').once('value') // Could have used on() to make the updates in real time
     .then((snapshot) => {
@@ -62,5 +64,20 @@ export const startRemovingPost = (index, id) => dispatch => (
   database.ref(`posts/${id}`).remove()
     .then(() => {
       dispatch(removePost(index));
+    })
+    .catch((err) => {
+      console.log(`There has been an error while removing a post from Firebase:\n${err}`);
+    })
+);
+
+// COMMENTS
+
+export const startAddingComment = (comment, postId) => dispatch => (
+  database.ref(`comments/${postId}`).push(comment)
+    .then(() => {
+      dispatch(addComment(comment, postId));
+    })
+    .catch((err) => {
+      console.log(`There has been an error while pushing a comment into Firebase:\n${err}`);
     })
 );

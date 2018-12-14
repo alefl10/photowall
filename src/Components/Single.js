@@ -7,7 +7,7 @@ const Single = (props) => {
   const {
     match,
     posts,
-    addComment,
+    startAddingComment,
   } = props;
   const id = Number(match.params.id);
   const comments = props.comments[id] || [];
@@ -16,8 +16,8 @@ const Single = (props) => {
 
   return (
     <div className="single-photo">
-      <Photo {...props} post={post} index={Number(id)} />
-      <Comments addComment={addComment} comments={comments} id={index} />
+      <Photo {...props} post={post} index={id} />
+      <Comments startAddingComment={startAddingComment} comments={comments} id={index} />
     </div>
   );
 };
@@ -33,7 +33,7 @@ Single.propTypes = {
       PropTypes.string.isRequired,
     ),
   }).isRequired,
-  addComment: PropTypes.func.isRequired,
+  startAddingComment: PropTypes.func.isRequired,
 };
 
 export default Single;
