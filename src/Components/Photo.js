@@ -40,7 +40,7 @@ const Photo = (props) => {
 Photo.propTypes = {
   index: PropTypes.number.isRequired,
   post: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     imageLink: PropTypes.string.isRequired,
   }).isRequired,

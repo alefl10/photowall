@@ -9,10 +9,10 @@ const Single = (props) => {
     posts,
     addComment,
   } = props;
-  const { id } = match.params;
+  const id = Number(match.params.id);
   const comments = props.comments[id] || [];
   const post = posts.find(postItem => postItem.id === id);
-  const index = String(posts.findIndex(postItem => postItem.id === id));
+  const index = Number(posts.findIndex(postItem => postItem.id === id));
 
   return (
     <div className="single-photo">
@@ -24,7 +24,7 @@ const Single = (props) => {
 
 Single.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     imageLink: PropTypes.string.isRequired,
   })).isRequired,

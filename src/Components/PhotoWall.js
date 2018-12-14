@@ -5,12 +5,12 @@ import Photo from './Photo';
 
 const PhotoWall = (props) => {
   const { posts } = props;
-  
+
   return (
     <div>
       <Link className="addIcon" to="/AddPhoto" />
       <div className="photo-grid">
-        {posts.sort((x, y) => y.id - x.id).map((post, index) => (
+        {posts.sort((x, y) => x.id - y.id).map((post, index) => (
           <Photo key={index} index={index} post={post} {...props} />))
         }
       </div>
@@ -20,7 +20,7 @@ const PhotoWall = (props) => {
 
 PhotoWall.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     imageLink: PropTypes.string.isRequired,
   })).isRequired,

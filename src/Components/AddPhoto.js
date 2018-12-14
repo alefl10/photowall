@@ -13,7 +13,7 @@ class AddPhoto extends Component {
     const description = e.target.elements.description.value;
     const { startAddingPost, onHistory } = this.props;
     const post = {
-      id: '0',
+      id: Number(new Date()),
       description,
       imageLink,
     };

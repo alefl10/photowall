@@ -36,7 +36,7 @@ class Comments extends Component {
 Comments.propTypes = {
   addComment: PropTypes.func.isRequired,
   comments: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default Comments;
