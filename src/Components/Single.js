@@ -18,13 +18,15 @@ const Single = (props) => {
   if (loading) {
     return <div className="loader">Loading...</div>;
   }
-
-  return (
-    <div className="single-photo">
-      <Photo {...props} post={post} index={index} />
-      <Comments startAddingComment={startAddingComment} comments={comments} id={id} />
-    </div>
-  );
+  if (post !== undefined) {
+    return (
+      <div className="single-photo">
+        <Photo {...props} post={post} index={index} />
+        <Comments startAddingComment={startAddingComment} comments={comments} id={id} />
+      </div>
+    );
+  }
+  return <h1 className="no-post">Sorry... That post does not exist anymore!</h1>;
 };
 
 Single.propTypes = {
